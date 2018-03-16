@@ -1,3 +1,4 @@
+package com.nest;
 /**
  * Created by qiu on 18-3-16.
  */
@@ -53,10 +54,6 @@ public class Customer extends Point {
             return false;
         }
         Customer other = (Customer) obj;
-        if (this.id != other.getId()) {
-            return false;
-        } else {
-            return true;
-        }
+        return this.id == other.getId();
     }
 }
