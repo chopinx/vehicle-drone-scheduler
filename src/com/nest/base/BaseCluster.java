@@ -1,4 +1,6 @@
-package com.nest;
+package com.nest.base;
+
+import com.nest.app.fixation.face.Clusterable;
 
 import java.util.ArrayList;
 import java.util.HashSet;

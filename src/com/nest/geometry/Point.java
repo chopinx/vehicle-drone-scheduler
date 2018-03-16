@@ -1,8 +1,11 @@
-package com.nest;
+package com.nest.geometry;
+
+import com.nest.app.fixation.face.Clusterable;
+
 /**
  * Created by qiu on 18-3-16.
  */
-public class Point implements Clusterable{
+public class Point implements Clusterable {
     /**
      * 横坐标
      */
