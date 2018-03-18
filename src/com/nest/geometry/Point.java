@@ -1,7 +1,5 @@
 package com.nest.geometry;
 
-import com.nest.app.fixation.face.Clusterable;
-
 /**
  * Created by qiu on 18-3-16.
  */
@@ -15,11 +13,11 @@ public class Point implements Clusterable {
      */
     private double y;
 
-    Point() {
+    public Point() {
         super();
     }
 
-    Point(int x, int y) {
+    public Point(int x, int y) {
         this.x = x;
         this.y = y;
     }
