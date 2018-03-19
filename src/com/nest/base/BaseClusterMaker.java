@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Set;
 
 /**
- * 一句话描述该类的功能
+ * 聚类算法基类，包含聚类算法的基础方法
  * @author xiaoq
  * @date 2018/3/16 11:40
  * @version [v1.0]

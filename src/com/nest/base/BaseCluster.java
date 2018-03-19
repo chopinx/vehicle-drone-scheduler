@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * 一句话描述该类的功能
+ * 簇的基类，用于聚类算法
  * @author xiaoq
  * @version v1.0
  * @date 2018/3/16
@@ -17,11 +17,11 @@ public class BaseCluster {
     /**
      * 类的中心点
      */
-    private Clusterable centerPoint;
+    protected Clusterable centerPoint;
     /**
      * 类中的节点集合
      */
-    private Set<Clusterable> pointSet = new HashSet<>();
+    protected Set<Clusterable> pointSet = new HashSet<>();
 
     /**
      * 从类中删除一个节点

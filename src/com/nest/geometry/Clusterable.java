@@ -1,6 +1,9 @@
 package com.nest.geometry;
 /**
- * Created by qiu on 18-3-16.
+ * 可聚类的借口，提供聚类算法中需要的操作方法
+ * @author xiaoq
+ * @date 2018/3/16 11:40
+ * @version [v1.0]
  */
 public interface Clusterable {
     /**

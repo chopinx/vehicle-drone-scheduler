@@ -1,7 +1,7 @@
 package com.nest.geometry;
 
 /**
- * 可用TSP的接口
+ * 可用TSP的接口，提供TSP算法中对象需要的方法
  * @author xiaoq
  * @version v1.0
  * @date 2018/3/19
