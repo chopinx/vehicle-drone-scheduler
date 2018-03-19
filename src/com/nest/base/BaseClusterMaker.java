@@ -6,12 +6,10 @@ import java.util.ArrayList;
 import java.util.Set;
 
 /**
- *
- * @deprecated 一句话描述该类的功能
+ * 一句话描述该类的功能
  * @author xiaoq
  * @date 2018/3/16 11:40
  * @version [v1.0]
- *
  */
 abstract class BaseClusterMaker {
     protected Set<Clusterable> pointSet;
