@@ -1,4 +1,4 @@
-package com.nest.common.geometry;
+package com.nest.common;
 
 /**
  * Created by qiu on 18-3-16.

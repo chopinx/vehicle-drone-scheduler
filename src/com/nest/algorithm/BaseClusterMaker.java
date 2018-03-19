@@ -1,6 +1,6 @@
-package com.nest.common.algorithm;
+package com.nest.algorithm;
 
-import com.nest.common.geometry.Clusterable;
+import com.nest.common.Clusterable;
 
 import java.util.ArrayList;
 import java.util.Set;
@@ -11,7 +11,7 @@ import java.util.Set;
  * @date 2018/3/16 11:40
  * @version [v1.0]
  */
-abstract class BaseClusterMaker {
+public abstract class BaseClusterMaker {
     protected Set<Clusterable> pointSet;
 
     protected ArrayList<BaseCluster> clusterList;
@@ -19,7 +19,7 @@ abstract class BaseClusterMaker {
     /**
      * 初始化
      */
-    abstract void init();
+    protected abstract void init();
 
     /**
      * 聚类的抽象方法
@@ -35,10 +35,10 @@ abstract class BaseClusterMaker {
      * 终止条件判断
      * @return 当满足终止条件时返回true
      */
-    abstract boolean endCondition();
+    protected abstract boolean endCondition();
 
     /**
      * 进行一轮聚类
      */
-    abstract void doCluster();
+    protected abstract void doCluster();
 }

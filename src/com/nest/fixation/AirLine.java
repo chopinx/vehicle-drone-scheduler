@@ -1,6 +1,6 @@
-package com.nest.common.fixation;
+package com.nest.fixation;
 
-import com.nest.common.geometry.Line;
+import com.nest.common.Line;
 
 /**
  * Created by qiu on 18-3-16.

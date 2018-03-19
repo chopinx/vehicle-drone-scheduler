@@ -1,6 +1,6 @@
-package com.nest.common.algorithm;
+package com.nest.algorithm;
 
-import com.nest.common.geometry.Clusterable;
+import com.nest.common.Clusterable;
 
 import java.util.ArrayList;
 import java.util.HashSet;

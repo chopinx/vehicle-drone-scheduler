@@ -1,4 +1,4 @@
-package com.nest.common.geometry;
+package com.nest.common;
 /**
  * 可聚类的借口，提供聚类算法中需要的操作方法
  * @author xiaoq

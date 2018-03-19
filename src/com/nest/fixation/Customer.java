@@ -1,6 +1,6 @@
-package com.nest.common.fixation;
+package com.nest.fixation;
 
-import com.nest.common.geometry.Point;
+import com.nest.common.Point;
 
 /**
  * Created by qiu on 18-3-16.
@@ -10,7 +10,7 @@ public class Customer extends Point {
     private int demand;//每个客户的需求量
     private boolean ifVisited = false;//节点是否被访问
 
-    Customer() {
+    public Customer() {
         super();
     }
 
