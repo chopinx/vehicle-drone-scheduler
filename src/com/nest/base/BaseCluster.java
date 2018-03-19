@@ -11,7 +11,7 @@ import java.util.Set;
  * @author xiaoq
  * @version v1.0
  * @date 2018/3/16
- * @deprecated 一句话描述该类的功能
+ * 一句话描述该类的功能
  */
 public class BaseCluster {
     /**
