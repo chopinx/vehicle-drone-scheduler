@@ -1,4 +1,4 @@
-package com.nest.movement.example;
+package com.nest.movement.my_project;
 
 import com.nest.movement.UAV;
 

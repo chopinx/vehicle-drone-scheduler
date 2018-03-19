@@ -1,4 +1,4 @@
-package com.nest.fixation.example;
+package com.nest.fixation.my_project;
 
 import com.nest.fixation.Customer;
 

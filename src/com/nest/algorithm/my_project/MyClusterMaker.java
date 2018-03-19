@@ -1,4 +1,4 @@
-package com.nest.algorithm.example;
+package com.nest.algorithm.my_project;
 
 import com.nest.algorithm.BaseClusterMaker;
 
