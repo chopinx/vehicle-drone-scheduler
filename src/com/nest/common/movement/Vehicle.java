@@ -1,4 +1,4 @@
-package com.nest.base;
+package com.nest.common.movement;
 /**
  * Created by qiu on 18-3-16.
  */

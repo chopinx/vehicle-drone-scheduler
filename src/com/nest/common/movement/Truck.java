@@ -1,6 +1,4 @@
-package com.nest.app.movement;
-
-import com.nest.base.Vehicle;
+package com.nest.common.movement;
 
 /**
  * Created by qiu on 18-3-16.

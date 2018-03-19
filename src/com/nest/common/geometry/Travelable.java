@@ -1,4 +1,4 @@
-package com.nest.geometry;
+package com.nest.common.geometry;
 
 /**
  * 可用TSP的接口，提供TSP算法中对象需要的方法
