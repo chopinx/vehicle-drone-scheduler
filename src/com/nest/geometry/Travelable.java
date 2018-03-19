@@ -7,4 +7,9 @@ package com.nest.geometry;
  * @date 2018/3/19
  */
 public interface Travelable {
+    /**
+     *
+     * @return 返回到目标的距离
+     */
+    double getDistance(Travelable des);
 }
