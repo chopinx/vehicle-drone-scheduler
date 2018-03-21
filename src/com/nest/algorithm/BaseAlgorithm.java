@@ -1,7 +1,8 @@
-package com.nest.base;
+package com.nest.algorithm;
+
 
 /**
- * 一句话描述类的功能
+ * 算法的基类
  *
  * @author Zp
  * @version v1.0
@@ -12,7 +13,7 @@ public abstract class BaseAlgorithm implements Runnable {
     /**
      * 标志位：判断算法是否开启
      */
-    private boolean isRunning;
+    private boolean isRunning = true;
 
     public boolean isRunning() {
         return isRunning;

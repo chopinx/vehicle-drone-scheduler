@@ -1,12 +1,18 @@
 package com.nest.display;
 
-import java.awt.*;
+
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Set;
 
-import com.nest.geometry.Point;
+import com.nest.algorithm.AlgorithmFactory;
+import com.nest.algorithm.BaseAlgorithm;
+import com.nest.common.AlgorithmEnum;
+import com.nest.common.Point;
 
 import javax.swing.*;
 
@@ -19,13 +25,13 @@ import javax.swing.*;
  */
 public class Display extends JFrame implements ActionListener {
 
-    private JButton startBtn = new JButton("开始运行");
+    private BaseAlgorithm currAlgorithm;
 
-    private JButton stopBtn = new JButton("停止运行");
+    private JButton startBtn;
 
-    private JLabel text = new JLabel("Algorithm ID：", SwingConstants.CENTER);
+    private JButton stopBtn;
 
-    private JTextField algorithmId = new JTextField();
+    private JTextField algorithmId;
 
     /**
      * Constructor
@@ -37,9 +43,9 @@ public class Display extends JFrame implements ActionListener {
         this.setTitle(str);
         this.setSize(950, 950);
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        this.setVisible(true);
 
         this.add(componentInit(), BorderLayout.SOUTH);
+        this.setVisible(true);
     }
 
     /**
@@ -62,18 +68,26 @@ public class Display extends JFrame implements ActionListener {
     /**
      * 界面组件（按钮，算法ID输入）初始化
      *
-     * @return
+     * @return - 初始化的面板
      */
     private JPanel componentInit() {
+        JLabel text = new JLabel("Algorithm ID：", SwingConstants.CENTER);
+
+        startBtn = new JButton("开始运行");
+        stopBtn = new JButton("停止运行");
+        algorithmId = new JTextField(8);
+
         startBtn.setContentAreaFilled(false);
         stopBtn.setContentAreaFilled(false);
 
         startBtn.addActionListener(this);
         stopBtn.addActionListener(this);
 
+        algorithmId.setBackground(null);
+
         JPanel panel = new JPanel();
         panel.setBorder(BorderFactory.
-                createEmptyBorder(200, 300, 20, 300));
+                createEmptyBorder(100, 300, 20, 300));
         panel.setLayout(new GridLayout(2, 2, 10, 10));
 
         panel.add(text);
@@ -91,8 +105,10 @@ public class Display extends JFrame implements ActionListener {
      * @param desPoint  - 目的点
      */
     public void drawLine(Point soulPoint, Point desPoint) {
-        this.add(new ShowLine(soulPoint, desPoint, 2, Color.BLACK));
+        ShowLine showLine = new ShowLine(soulPoint, desPoint, 2, Color.BLACK);
+        this.add(showLine);
         this.setVisible(true);
+        this.repaint();
     }
 
     /**
@@ -222,31 +238,28 @@ public class Display extends JFrame implements ActionListener {
 
     /**
      * 根据算法ID，选择需要运行的算法
+     *
      * @param text - 输入的算法ID
      */
-     private void selectByAlgorithmId(String text) {
+    private void selectByAlgorithmId(String text) {
         if (text == null || text.isEmpty()) {
             return;
         }
-        switch (text) {
-            case "1":
-                System.out.println("成功运行算法1");
-                break;
-            case "2":
-                System.out.println("成功运行算法2");
-                break;
-            case "3":
-                System.out.println("成功运行算法3");
-                break;
-            default:
-                break;
+
+        if (AlgorithmEnum.selectByID(text) == null) {
+            return;
         }
+        currAlgorithm = AlgorithmFactory.createAlgorithm(AlgorithmEnum.selectByID(text));
+
+        System.out.println("开始运行" + AlgorithmEnum.selectByID(text).getAlgorithmInfo());
+
+        new Thread(currAlgorithm).start();
     }
 
     /**
      * 按钮监听事件
      *
-     * @param e
+     * @param e - 按钮点击事件
      */
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -254,7 +267,13 @@ public class Display extends JFrame implements ActionListener {
             String text = algorithmId.getText();
             selectByAlgorithmId(text);
         } else if (e.getSource() == stopBtn) {
-            //停止算法的运行
+            if (currAlgorithm == null) {
+                System.out.println("当前未开始运行");
+                return;
+            }
+            currAlgorithm.setRunning(false);
+
+            System.out.println("停止运行");
         }
     }
 }

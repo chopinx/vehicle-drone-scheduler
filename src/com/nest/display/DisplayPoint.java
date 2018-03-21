@@ -2,8 +2,7 @@ package com.nest.display;
 
 import java.awt.Color;
 
-import com.nest.geometry.Point;
-
+import com.nest.common.Point;
 /**
  *  画点
  * @author tfl

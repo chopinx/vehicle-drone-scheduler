@@ -12,7 +12,7 @@ import java.util.Set;
 
 import javax.swing.JPanel;
 
-import com.nest.geometry.Point;
+import com.nest.common.Point;
 
 /**
  *  画线

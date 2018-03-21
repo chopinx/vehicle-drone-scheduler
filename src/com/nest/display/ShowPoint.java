@@ -1,15 +1,13 @@
 package com.nest.display;
 
-import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.geom.Line2D;
 import java.util.HashSet;
 import java.util.Set;
 
 import javax.swing.JPanel;
-import com.nest.geometry.Point;
+import com.nest.common.Point;
 /**
  *  画点
  * @author tfl

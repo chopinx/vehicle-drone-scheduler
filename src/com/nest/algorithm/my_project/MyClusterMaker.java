@@ -15,7 +15,6 @@ public class MyClusterMaker extends BaseClusterMaker {
      */
     @Override
     protected void init() {
-        return;
     }
 
     /**
@@ -33,6 +32,5 @@ public class MyClusterMaker extends BaseClusterMaker {
      */
     @Override
     protected void doCluster() {
-        return;
     }
 }
