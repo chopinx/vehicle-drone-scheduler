@@ -1,6 +1,8 @@
 package com.nest.algorithm;
 
 
+import com.nest.display.DisplayBuffer;
+
 /**
  * 算法的基类
  *
@@ -15,11 +17,29 @@ public abstract class BaseAlgorithm implements Runnable {
      */
     private boolean isRunning = true;
 
+    /**
+     * 显示缓存区，所有需要显示的元素都应该存到该缓存区
+     */
+    protected DisplayBuffer displayBuffer = new DisplayBuffer();
+
+    public abstract void start();
+
+    @Override
+    public void run() {
+        System.out.println("算法开始运行");
+        start();
+        System.out.println("算法运行结束！");
+    }
+
     public boolean isRunning() {
         return isRunning;
     }
 
     public void setRunning(boolean running) {
         isRunning = running;
+    }
+
+    public DisplayBuffer getDisplayBuffer() {
+        return displayBuffer;
     }
 }

@@ -9,7 +9,7 @@ import com.nest.common.Point;
  * @date 2018-3-19
  * @version v1.0
  */
-class DisplayPoint{
+public class DisplayPoint{
 	public Point point;
 	public float width;
 	public Color color;

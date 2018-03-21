@@ -33,6 +33,10 @@ public class Display extends JFrame implements ActionListener {
 
     private JTextField algorithmId;
 
+    public BaseAlgorithm getCurrAlgorithm() {
+        return currAlgorithm;
+    }
+
     /**
      * Constructor
      *
@@ -98,6 +102,18 @@ public class Display extends JFrame implements ActionListener {
         return panel;
     }
 
+    public void draw(DisplayBuffer buffer){
+        for (DisplayPoint point : buffer.getPointList()) {
+            this.drawPoint(point);
+        }
+        for (DisplayLine line : buffer.getLineList()) {
+            this.drawLine(line);
+        }
+        for (DisplayString str : buffer.getStringList()) {
+            this.drawString(str);
+        }
+    }
+
     /**
      * 画线的默认方法
      *
@@ -109,6 +125,15 @@ public class Display extends JFrame implements ActionListener {
         this.add(showLine);
         this.setVisible(true);
         this.repaint();
+    }
+
+    /**
+     * 画线
+     * @param line
+     */
+    public void drawLine(DisplayLine line) {
+        this.add(new ShowLine(line.soulPoint, line.desPoint, line.width, line.color));
+        this.setVisible(true);
     }
 
     /**
@@ -161,6 +186,15 @@ public class Display extends JFrame implements ActionListener {
     }
 
     /**
+     * 在指定位置写字
+     * @param str
+     */
+    public void drawString(DisplayString str) {
+        this.add(str);
+        this.setVisible(true);
+    }
+
+    /**
      * 画点的默认方法
      *
      * @param pointSet - 待显示的节点集合
@@ -189,6 +223,16 @@ public class Display extends JFrame implements ActionListener {
      */
     public void drawPoint(Point point) {
         this.add(new ShowPoint(point, 2, Color.BLACK));
+        this.setVisible(true);
+    }
+
+    /**
+     * 画点的默认方法
+     *
+     * @param point - 待显示的点
+     */
+    public void drawPoint(DisplayPoint point) {
+        this.add(new ShowPoint(point.point, point.width, point.color));
         this.setVisible(true);
     }
 
@@ -272,8 +316,8 @@ public class Display extends JFrame implements ActionListener {
                 return;
             }
             currAlgorithm.setRunning(false);
-
             System.out.println("停止运行");
+            currAlgorithm = null;
         }
     }
 }
