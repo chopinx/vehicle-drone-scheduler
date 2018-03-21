@@ -1,13 +1,23 @@
-package com.nest.geometry;
+package com.nest.common;
 
 /**
  * Created by qiu on 18-3-16.
  */
-public class Point implements Clusterable {
+public class Point implements Clusterable, Travelable {
     /**
      * 横坐标
      */
     private double x;
+
+    /**
+     * @param des 目标对象
+     * @return 返回到目标的距离
+     */
+    @Override
+    public double getDistance(Travelable des) {
+        return getDistance((Point) des);
+    }
+
     /**
      * 纵坐标
      */

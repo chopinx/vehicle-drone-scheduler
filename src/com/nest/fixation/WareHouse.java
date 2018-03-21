@@ -1,6 +1,6 @@
-package com.nest.app.fixation;
+package com.nest.fixation;
 
-import com.nest.geometry.Point;
+import com.nest.common.Point;
 
 /**
  * Created by qiu on 18-3-16.
