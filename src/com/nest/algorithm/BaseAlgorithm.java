@@ -26,9 +26,9 @@ public abstract class BaseAlgorithm implements Runnable {
 
     @Override
     public void run() {
-        System.out.println("算法开始运行");
+        System.out.println("[" + getAlgorithmName() + "]" + "开始运行");
         start();
-        System.out.println("算法运行结束！");
+        System.out.println("[" + getAlgorithmName() + "]" + "运行结束！");
     }
 
     public boolean isRunning() {
@@ -42,4 +42,6 @@ public abstract class BaseAlgorithm implements Runnable {
     public DisplayBuffer getDisplayBuffer() {
         return displayBuffer;
     }
+
+    public abstract String getAlgorithmName();
 }

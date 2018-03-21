@@ -103,14 +103,17 @@ public class Display extends JFrame implements ActionListener {
     }
 
     public void draw(DisplayBuffer buffer){
-        for (DisplayPoint point : buffer.getPointList()) {
-            this.drawPoint(point);
-        }
-        for (DisplayLine line : buffer.getLineList()) {
-            this.drawLine(line);
-        }
-        for (DisplayString str : buffer.getStringList()) {
-            this.drawString(str);
+        //this.repaint();
+        synchronized (buffer){
+            for (DisplayPoint point : buffer.getPointList()) {
+                this.drawPoint(point);
+            }
+            for (DisplayLine line : buffer.getLineList()) {
+                this.drawLine(line);
+            }
+            for (DisplayString str : buffer.getStringList()) {
+                this.drawString(str);
+            }
         }
     }
 
@@ -124,7 +127,6 @@ public class Display extends JFrame implements ActionListener {
         ShowLine showLine = new ShowLine(soulPoint, desPoint, 2, Color.BLACK);
         this.add(showLine);
         this.setVisible(true);
-        this.repaint();
     }
 
     /**
@@ -295,8 +297,6 @@ public class Display extends JFrame implements ActionListener {
         }
         currAlgorithm = AlgorithmFactory.createAlgorithm(AlgorithmEnum.selectByID(text));
 
-        System.out.println("开始运行" + AlgorithmEnum.selectByID(text).getAlgorithmInfo());
-
         new Thread(currAlgorithm).start();
     }
 
@@ -308,6 +308,7 @@ public class Display extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == startBtn) {
+            this.clearPicture();
             String text = algorithmId.getText();
             selectByAlgorithmId(text);
         } else if (e.getSource() == stopBtn) {
@@ -316,7 +317,6 @@ public class Display extends JFrame implements ActionListener {
                 return;
             }
             currAlgorithm.setRunning(false);
-            System.out.println("停止运行");
             currAlgorithm = null;
         }
     }

@@ -19,9 +19,11 @@ public class Example extends BaseAlgorithm{
     @Override
     public void start() {
         int i = 1;
-        while (true){
-            Point point = new Point((i++) * 10, 10);
-            displayBuffer.addPoint(new DisplayPoint(point, 1, Color.BLACK));
+        while (isRunning()){
+            Point point = new Point((i++) * 20, 100);
+            synchronized (displayBuffer){
+                displayBuffer.addPoint(new DisplayPoint(point, 4, Color.BLACK));
+            }
             try {
                 sleep(2000);
             } catch (InterruptedException e) {
@@ -30,4 +32,8 @@ public class Example extends BaseAlgorithm{
         }
     }
 
+    @Override
+    public String getAlgorithmName() {
+        return "示例算法";
+    }
 }
